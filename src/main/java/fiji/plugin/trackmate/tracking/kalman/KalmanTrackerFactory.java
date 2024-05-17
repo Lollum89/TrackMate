@@ -143,7 +143,7 @@ public class KalmanTrackerFactory implements SpotTrackerFactory {
         str.append(String.format("  - initial search radius: %.1f\n", initialSearchRadius));
         str.append(String.format("  - max search radius: %.1f\n", maxSearchRadius));
         str.append(String.format("  - max frame gap: %d\n", maxFrameGap));
-        str.append(String.format("  - expected movement: [%.1f; %.1f; %g]\n", expectedMovement[0], expectedMovement[1], expectedMovement[2]));
+        str.append(String.format("  - expected movement: [%.1f;%.1f;%.1f]\n", expectedMovement[0], expectedMovement[1], expectedMovement[2]));
 
         return str.toString();
     }

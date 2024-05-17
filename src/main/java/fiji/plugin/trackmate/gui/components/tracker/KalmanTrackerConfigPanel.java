@@ -108,7 +108,7 @@ public class KalmanTrackerConfigPanel extends ConfigurationPanel {
             public void focusLost(FocusEvent e) {
                 if (!validateExpectedMovementInput(tfExpectedMovement.getText())) {
                     JOptionPane.showMessageDialog(null, "Invalid input. Please enter a comma-separated list of three numbers (e.g., '123;0;0').", "Invalid Input", JOptionPane.ERROR_MESSAGE);
-                    tfExpectedMovement.setText("0;0;0");
+                    tfExpectedMovement.setText(String.format("%.1f;%.1f;%.1f", 0, 0, 0));
                 }
             }
         });
@@ -165,7 +165,7 @@ public class KalmanTrackerConfigPanel extends ConfigurationPanel {
         settings.put(KEY_KALMAN_SEARCH_RADIUS, ((Number) tfSearchRadius.getValue()).doubleValue());
         settings.put(KEY_GAP_CLOSING_MAX_FRAME_GAP, ((Number) tfMaxFrameGap.getValue()).intValue());
 
-        String[] parts = tfExpectedMovement.getText().split(",");
+        String[] parts = tfExpectedMovement.getText().split(";");
         double[] expectedMovement = new double[3];
         for (int i = 0; i < parts.length; i++) {
             expectedMovement[i] = Double.parseDouble(parts[i].trim());
