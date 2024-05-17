@@ -195,7 +195,7 @@ public class JPanelAdvancedKalmanTrackerSettingsMain extends javax.swing.JPanel
 		lblExpectedMovement.setText("Expected movement ( X;Y;Z ):");
 		lblExpectedMovement.setFont(SMALL_FONT);
 	
-		txtfldExpectedMovement = new JTextField("0;0;0");
+		txtfldExpectedMovement = new JTextField(String.format("%.1f;%.1f;%.1f", 0, 0, 0));
 		this.add(txtfldExpectedMovement, new GridBagConstraints(1, ycur, 2, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 		txtfldExpectedMovement.setFont(SMALL_FONT);
 		txtfldExpectedMovement.setSize( TEXTFIELD_DIMENSION );
@@ -213,7 +213,7 @@ public class JPanelAdvancedKalmanTrackerSettingsMain extends javax.swing.JPanel
 					parseExpectedMovement(txtfldExpectedMovement.getText());
 				} catch (IllegalArgumentException ex) {
 					JOptionPane.showMessageDialog(null, ex.getMessage(), "Invalid Input", JOptionPane.ERROR_MESSAGE);
-					txtfldExpectedMovement.setText("0;0;0"); // Reset to default or handle as necessary
+					txtfldExpectedMovement.setText(String.format("%.1f;%.1f;%.1f", 0, 0, 0)); // Reset to default or handle as necessary
 				}
 			}
 		});
